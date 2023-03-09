@@ -4,23 +4,23 @@
 <meta name="viewport" content="width=1000">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@prabshr">
-<meta property="og:url" content="http://www2.meteo.uni-bonn.de/staff/pshrestha/dataVis/entries/2016-007.html">
+<meta property="og:url" content="https://prabshr.github.io/dataVis/entries/2016-007.html">
 <meta property="og:title" content="Nepal Election 2013 Interactive Map">
 <meta property="og:description" content="Prabhakar Shrestha's dataVis">
-<meta property="og:image" content="http://www2.meteo.uni-bonn.de/staff/pshrestha/dataVis/Image/2016-007.png">
+<meta property="og:image" content="https://prabshr.github.io/dataVis/Image/2016-007.png">
 <head>
 </head>
-<link rel="stylesheet" type="text/css" href="http://www2.meteo.uni-bonn.de/staff/pshrestha/externalcss/style.css">
-<script src="http://d3js.org/d3.v3.min.js"></script>
-<script src="http://d3js.org/topojson.v1.min.js"></script>
-<!--<script src="http://rawgithub.com/markmarkoh/datamaps/master/dist/datamaps.none.min.js"></script>
+<link rel="stylesheet" type="text/css" href="https://prabshr.github.io/externalcss/style.css">
+<script src="https://d3js.org/d3.v3.min.js"></script>
+<script src="https://d3js.org/topojson.v1.min.js"></script>
+<!--<script src="https://rawgithub.com/markmarkoh/datamaps/master/dist/datamaps.none.min.js"></script>
 -->
 <script src="../js/datamaps.none.min.js"></script>
 <body> 
 
 <div id="C1">
 <h2><font color="black">Nov 2016 ,</font>
-<font color="steelblue"><a href="http://www2.meteo.uni-bonn.de/staff/pshrestha/welcome.html">Prabhakar Shrestha</a></font>
+<font color="steelblue"><a href="https://prabshr.github.io/index.html#C3">blogs</a></font>
 </h2>
 <h2>Nepal Election 2013 Interactive Map</br>
 <a href="https://twitter.com/share" class="twitter-share-button" data-show-count="true">Tweet</a><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
@@ -258,8 +258,8 @@ The fill colors represents the parties which won the district, while "DIV" indic
 <br>
 <br>
 
-Constituent Assembly Election Data for 2013 from <a href="http://election.gov.np">Election Commission, Nepal</a> was used to generate this
-interctive electorate map for Nepal, using <a href="http://datamaps.github.io/">DataMaps</a>. 
+Constituent Assembly Election Data for 2013 from <a href="https://election.gov.np">Election Commission, Nepal</a> was used to generate this
+interctive electorate map for Nepal, using <a href="https://datamaps.github.io/">DataMaps</a>. 
 <br>
 The shapefile containing the district boundaries of Nepal (source: ArcGIS), was converted to GeoJSON and then to topoJSON,
 following the steps from <a href="https://bost.ocks.org
@@ -272,7 +272,7 @@ ogr2ogr -f GeoJSON nepal_districts.json NP_75DWGS84.shp<br><br>
 topojson -o nepaldistricts.json --id-property DIST_ID --properties name=DISTRICT npd.json<br>
 </p>
 <p>
-In addition, array manipulation and sorting has beeen used from <a href="https://github.com/d3/d3-array">d3-array</a> and <a href="http://alignedleft.com/tutorials/d3/data-types">ScottMurray's tutorial</a> to find which party won the district election, from the election data, as each district can have multiple constinuencies. The fill color represents the party which won the election, while the color for "DIV" is used when more than one party won equal seats from that district.
+In addition, array manipulation and sorting has beeen used from <a href="https://github.com/d3/d3-array">d3-array</a> and <a href="https://alignedleft.com/tutorials/d3/data-types">ScottMurray's tutorial</a> to find which party won the district election, from the election data, as each district can have multiple constinuencies. The fill color represents the party which won the election, while the color for "DIV" is used when more than one party won equal seats from that district.
 <br> <br>
 I am just trying to teach myself to use this wonderful interface to explore data, hope it helps you also !!!!
 </div>
