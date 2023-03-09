@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<meta charset="utf-8">
+<meta name="viewport" content="width=1000">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@prabshr">
+<meta property="og:url" content="http://www2.meteo.uni-bonn.de/staff/pshrestha/dataVis/entries/2016-006.html">
+<meta property="og:title" content="BIT Migration Pattern">
+<meta property="og:description" content="Prabhakar Shrestha's dataVis">
+<meta property="og:image" content="http://www2.meteo.uni-bonn.de/staff/pshrestha/dataVis/Image/2016-006.png">
+<head>
+</head>
+<link rel="stylesheet" type="text/css" href="http://www2.meteo.uni-bonn.de/staff/pshrestha/externalcss/style.css">
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<script src="http://d3js.org/topojson.v1.min.js"></script>
+  <!-- I recommend you host this file on your own, since this will change without warning -->
+<script src="../js/datamaps.world.min.js"></script>
+
+<body> 
+
+<div id="C1">
+<h2><font color="black">Sep 2016 ,</font>
+<font color="steelblue"><a href="http://www2.meteo.uni-bonn.de/staff/pshrestha/welcome.html">Prabhakar Shrestha</a></font>
+</h2>
+<h2>BIT Mesra Migration Chart: 
+</br>
+<a href="https://twitter.com/share" class="twitter-share-button" data-show-count="true">Tweet</a><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+</h2>
+
+ <div id="d3vis">
+     <script>
+      //basic map config with custom fills, mercator projection
+
+      var map = new Datamap({
+        scope: 'world',
+        element: document.getElementById('d3vis'),
+        projection: 'mercator',
+        height: 400,
+        fills: {
+          defaultFill: '#f0af0a',
+          lt50: 'rgba(0,244,244,0.9)',
+          gt50: 'red',
+          rt50: 'green'
+        },
+        
+        data: {
+
+          IND: {fillKey: 'lt50' },
+          NPL: {fillKey: 'rt50' }
+        }
+      });
+
+      // Get the data asynchronus call
+      d3.csv("../csvData/bitMigration.csv", function(dataBIT) {
+      dataBIT.forEach(function(d) {
+        d.name           =  d.name;
+        d.batch          =  d.batch;
+        d.latitude       = +d.latitude;
+        d.longitude      = +d.longitude;
+        d.radius         = +d.radius;
+        d.fillKey        =  d.fillKey;
+      });
+
+      //Merge arrays to create input for the arc plugin
+      
+      var migrationBIT  = [
+        {
+            origin: {
+                latitude:  dataBIT[0].latitude,
+                longitude: dataBIT[0].longitude
+            },
+            destination: {
+                latitude: dataBIT[1].latitude,
+                longitude:dataBIT[1].longitude 
+            }
+        }
+         ];
+
+      for (var i=2;i<dataBIT.length;i++)
+		{ 
+      var migrationBIT2  = [
+        {
+            origin: {
+                latitude:  dataBIT[0].latitude,
+                longitude: dataBIT[0].longitude
+            },
+            destination: {
+                latitude: dataBIT[i].latitude,
+                longitude:dataBIT[i].longitude 
+            }
+        }
+         ];
+      Array.prototype.push.apply(migrationBIT, migrationBIT2);
+      }
+      //console.log(migrationBIT)
+      //
+      map.arc( migrationBIT, {strokeWidth: 1});
+      
+     //bubbles, custom popup on hover template
+     //console.log(dataBIT[0])
+     map.bubbles(dataBIT, 
+       {
+       popupTemplate: function(geo, dataBIT) {
+         return "<div class='hoverinfo'>" + dataBIT.name + "<br> Batch of <strong>" +  dataBIT.batch +"</div>";
+       }
+     });
+
+     });
+      
+     </script>
+
+ </div>
+This visualization was motivated from <a href="http://datamaps.github.io/">DataMaps Project Homepage</a>
+</div>
+</body>
+
+</html>

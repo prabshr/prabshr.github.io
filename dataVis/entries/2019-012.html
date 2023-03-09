@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<meta charset="utf-8">
+<meta name="viewport" content="width=1000">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@prabshr">
+<meta name="twitter:image" content="https://www2.meteo.uni-bonn.de/staff/pshrestha/dataVis/images/kinsol2.png">
+<meta property="og:url" content="https://www2.meteo.uni-bonn.de/staff/pshrestha/dataVis/entries/2019-001.html">
+<meta property="og:title" content="ParFlow Pulse">
+<meta property="og:description" content="Prabhakar Shrestha's dataVis">
+
+<head>
+</head>
+<link rel="stylesheet" type="text/css" href="http://www2.meteo.uni-bonn.de/staff/pshrestha/externalStyling/style1.css">
+<link rel="stylesheet" type="text/css" href="http://www2.meteo.uni-bonn.de/staff/pshrestha/externalStyling/plot.css">
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<body>
+
+<div id="header">
+<p><font color="black">Mar 2019 ,</font>
+<font color="steelblue"><a href="http://www2.meteo.uni-bonn.de/staff/pshrestha/welcome.html">Prabhakar Shrestha</a></font></p>
+<h2>Parflow Pulse</h2>
+<a href="https://twitter.com/share" class="twitter-share-button" data-show-count="true">Tweet</a><script
+ async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+</div>
+
+<div id="section">
+  <div style="float:left;width: 1016px;height:580px;margin:0px; ">
+    <img src="../images/kinsol2.png" alt="" style="width:1016px;height:580px;">
+  </div>
+</div>
+
+<div id="article">
+Spinup of the 3D groundwater model ParFlow can be computationally expensive, and yet the convergence is dependent on many factors.
+Here, we simply examine a spinup simulation using ncl script <a href="http://www2.meteo.uni-bonn.de/staff/pshrestha/shared/parflow_terrsympHydro_pulse.ncl">parflow_terrsympHydro_pulse.ncl</a>. This script co-plots the time-series of number of function evaluations needed for model convergence, and the offline atmospheric domain average rain rate. Here the atmospheric domain is relatively larger than the model computational domain.
+The increase in number of function evaluations results in slowing of the model run speed, i.e. larger wall-clock time. 
+Qualitatively, the above figure shows that the ParFlow Pulse (here number of Function evaluations) is correlated to domain precipitation. 
+So, ParFlow computation is relatively faster during recession period than during precipitation period in above simulation.
+
+</br>
+</br>
+</div>
+
+</body>
+</html>

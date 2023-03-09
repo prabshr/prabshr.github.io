@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<meta charset="utf-8">
+<meta name="viewport" content="width=1000">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@prabshr">
+<meta property="og:url" content="http://www2.meteo.uni-bonn.de/staff/pshrestha/dataVis/entries/2016-008.html">
+<meta property="og:title" content="Revisiting Nepal Election 2013 Interactive Map">
+<meta property="og:description" content="Prabhakar Shrestha's dataVis">
+<meta property="og:image" content="http://www2.meteo.uni-bonn.de/staff/pshrestha/dataVis/Image/2016-008.png">
+<link rel="stylesheet" type="text/css" href="http://www2.meteo.uni-bonn.de/staff/pshrestha/externalcss/style.css">
+<head>
+</head>
+
+<style>
+ .district {
+    fill: #666;
+    fill-opacity: 1.0;
+    stroke: #fff;
+    stroke-width: 1px;
+  }
+
+ .district:hover {
+    fill-opacity: 0.6;
+    fill: #666;
+  }
+
+ div.tooltip {
+    color: #222;
+    background-color: var(--bgcolor);
+    border-radius: 1px;
+    width: auto;
+    height: auto;
+    opacity: 0.8;
+    text-align: left;
+    position:absolute;
+    padding: 2px;
+    font: 12px sans-serif;
+    border: 0px;
+    border-radius: 8px;
+    }
+  .legend {
+    position:absolute;
+    left:700px;
+    top:150px;
+   }
+
+</style>
+
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<script src="http://d3js.org/topojson.v1.min.js"></script>
+
+<body> 
+
+<div id="C1">
+<h2><font color="black">Dec 2016 ,</font> 
+<font color="steelblue"><a href="http://www2.meteo.uni-bonn.de/staff/pshrestha/welcome.html">Prabhakar Shrestha</a></font>
+</h2>
+<h2>Revisiting Nepal Election 2013 Interactive Map</br>
+<a href="https://twitter.com/share" class="twitter-share-button" data-show-count="true">Tweet</a><script
+ async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+</h2>
+
+<script type="text/javascript" src="http://www2.meteo.uni-bonn.de/staff/pshrestha/dataVis/js/d3nepalElection.js">  
+</script>
+</div>
+
+<div id="C1">
+Hover the cursor over the districts to explore the voter statistics for each constituency, including the party which won the election.
+The fill colors represents the parties which won the district, while "DIV" indicates more than one party won equal number of seats.
+<br>
+
+Constituent Assembly Election Data for 2013 from <a href="http://election.gov.np">Election Commission, Nepal</a> was used to generate this
+interctive electorate map for Nepal, using d3.js. 
+<br>
+The shapefile containing the district boundaries of Nepal (source: ArcGIS), was converted to GeoJSON and then to topoJSON,
+following the steps from <a href="https://bost.ocks.org/mike/map/"> Mike Bostock's Let's Make a Map</a>. The steps to create the topoJSON is also shown below:
+
+<font color="steelblue"><b>Converting to GeoJSON</b></font><br><br>
+ogr2ogr -f GeoJSON nepal_districts.json NP_75DWGS84.shp<br><br>
+<font color="steelblue"><b>Converting to topoJSON</b></font><br><br>
+topojson -o nepaldistricts.json --id-property DIST_ID --properties name=DISTRICT npd.json<br>
+
+In addition, array manipulation and sorting has beeen used from <a href="https://github.com/d3/d3-array">d3-array</a> and <a href="http://alignedleft.com/tutorials/d3/data
+-types">ScottMurray's tutorial</a> to find which party won the district election, from the election data, as each district can have multiple constinuencies. The fill color
+ represents the party which won the election, while the color for "DIV" is used when more than one party won equal seats from that district.
+<br> <br>
+<font color="steelblue"><b>This visualization uses d3.csv and d3.json together, and analysis is also done in runtime.
+</b></font>
+</div>
+</body>
+
+</html>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<meta charset="utf-8">
+<meta name="viewport" content="width=1000">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@prabshr">
+<meta property="og:url" content="http://www2.meteo.uni-bonn.de/staff/pshrestha/dataVis/entries/2017-009.html">
+<meta property="og:title" content="Local Election 2017 First Phase">
+<meta property="og:description" content="Prabhakar Shrestha's dataVis">
+<meta property="og:image" content="http://www2.meteo.uni-bonn.de/staff/pshrestha/dataVis/Image/2017-009.png">
+<link rel="stylesheet" type="text/css" href="http://www2.meteo.uni-bonn.de/staff/pshrestha/externalcss/style.css">
+<head>
+</head>
+
+<style>
+ .district {
+    fill: #666;
+    fill-opacity: 1.0;
+    stroke: #fff;
+  }
+
+ .district:hover {
+    fill-opacity: 0.6;
+    fill: #666;
+  }
+
+ div.tooltip {
+    color: #222;
+    background-color: var(--bgcolor);
+    border-radius: 1px;
+    width: auto;
+    height: auto;
+    opacity: 0.8;
+    text-align: left;
+    position:absolute;
+    padding: 2px;
+    font: 12px sans-serif;
+    border: 0px;
+    border-radius: 8px;
+    }
+  .legend {
+    position:absolute;
+    left:700px;
+    top:150px;
+   }
+
+</style>
+
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<script src="http://d3js.org/topojson.v1.min.js"></script>
+
+<body> 
+
+<div id="C1">
+<h2><font color="black">May 2017 ,</font> 
+<font color="steelblue"><a href="http://www2.meteo.uni-bonn.de/staff/pshrestha/welcome.html">Prabhakar Shrestha</a></font>
+</h2>
+<h2>Local Election Nepal 2017</br>
+<a href="https://twitter.com/share" class="twitter-share-button" data-show-count="true">Tweet</a><script
+ async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+</h2>
+
+<script type="text/javascript" src="http://www2.meteo.uni-bonn.de/staff/pshrestha/dataVis/js/d3localElectionNepal2017.js">  
+</script>
+
+</div>
+
+<div id="C1">
+<p>
+
+<em><font color=#404040>Interactive Map: Move the cursor over the map to display district data  and click to zoom</font></em> Uses example from  <a href="https://bl.ocks.org/mbostock/2206590">click-to-zoom via transform</a> for zooming.</br></br>
+As Nepal transitions into federalism, with the new constitution (2015), the first local election after 20 years will hopefully redistribute the power of governance at local levels.
+The first phase of local election in only three provinces (3,4,6) has taken place to allow time for amendment of the constitution before the next phase of election Provinces 1, 2, 5 and 7. 
+</br></br>
+<b><font color=steelblue>Understanding the Local Election Structure</font></b></br></br>
+<b>Spatial Demarcation of local governance: </b></br>
+Country - Districts -- Local Units  --- Wards</br></br>
+The above interactive map shows the outlines of each districts. There are altogether 75 districts. Each district can have multiple Local Units (<b>LUs</b>). These Local Units could be either Maha-Nagarpalika, Nagarpalika or Gaunpalika. Each Local Unit can have multiple number of Wards. Ward is the smallest local demarcation for governance.
+</br></br>
+<b>Who are Nepalese people voting for in this local election? </b></br>
+</br>
+<b>1. Ward</b></br>
+   Chair Person (1)</br>
+   General Member Women (1)</br>
+   General Member Dalit Women (1)</br>
+   General Member (2)</br>
+</br>
+<b>2. Local Unit</b></br>
+   - Maha-Nagarpalika or Nagarpalika </br>
+     Mayor (1) </br>
+     Deputy Mayor(1) </br>
+   - Gaunpalika</br>
+     Chairperson (1) </br>
+     Deputy chairperson (1) </br>
+</br>
+The <a href="http://www.ifes.org">IFES</a> also provides interesting FAQs about the <a href="http://www.ifes.org/faqs/elections-nepal-2017-local-elections">Local Elections in Nepal 2017.</a>
+</br></br>
+
+<b><font color=steelblue>Updates on the election results</font></b></br></br>
+Here are the latest updates with interactive d3.js map, based on data available from <a href="http://www.election.gov.np/en/">Election Commission of Nepal</a> and other listed sources.
+</p>
+
+<p>
+<i><font color=steelblue>Log: May 14 2017, 9:50 PM (+2 UTC)</font></i> </br>
+The voting has finished and data is available for percent voting. The vote counting has also started.
+</br>
+Available Data:</br>
+Percent votes in each district. Source: <a href="http://www.pahilopost.com/content/-32230.html">Pahilopost</a>
+</p>
+
+<p>
+<i><font color=steelblue>Log: May 16 2017, 9:50 PM (+2 UTC) </font></i></br>
+The vote counting has started but has been plagued by slow counting, especially in bigger metropolitan areas! It is difficult to collect any consistent data based on district election outcome but working on it.
+</br>
+</p>
+
+<p>
+<i><font color=steelblue>Log: May 18 2017, 9:50 PM (+2 UTC) </font></i></br>
+The vote counting has been completed for all seats in 7 districts only. Source: <a href="http://www.pahilopost.com/content/-32513.html">Pahilopost</a>.
+</br>
+</p>
+
+<p>
+<i><font color=steelblue>Log: May 30 2017, 9:50 PM (+2 UTC) </font></i></br>
+Getting reliable online data of the election results was very difficult through the Election Commission of Nepal. But, the local newspapers have done a commendable job, espcially <a href="http://election.ekantipur.com">Kantipur</a> with its tractable update. I am still working slowly to update the map. Hopefully, I will complete it soon :)
+</div>
+
+</html>

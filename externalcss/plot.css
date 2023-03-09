@@ -1,0 +1,49 @@
+.dot1 {
+  fill-opacity: .5;
+  fill: red;
+}
+
+.dot2 {
+  fill-opacity: .5;
+  fill: blue;
+}
+
+.dot3 {
+  fill-opacity: .5;
+  fill: black;
+}
+
+.dot4 {
+  fill-opacity: .5;
+  fill: green;
+}
+
+.line1 {
+    stroke: red;
+    stroke-width: 1;
+    fill: none;
+}
+
+.line2 {
+    stroke: blue;
+    stroke-width: 1;
+    fill: none;
+}
+
+.line3 {
+    stroke: black;
+    stroke-width: 1;
+    fill: none;
+}
+
+.line4 {
+    stroke: green;
+    stroke-width: 1;
+    fill: none;
+}
+
+.legend rect {
+  fill:white;
+  stroke:black;
+  opacity:0.8;}
+

@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<meta charset="utf-8">
+<meta name="viewport" content="width=1000">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@prabshr">
+<meta property="og:url" content="http://www2.meteo.uni-bonn.de/staff/pshrestha/dataVis/entries/2016-007.html">
+<meta property="og:title" content="Nepal Election 2013 Interactive Map">
+<meta property="og:description" content="Prabhakar Shrestha's dataVis">
+<meta property="og:image" content="http://www2.meteo.uni-bonn.de/staff/pshrestha/dataVis/Image/2016-007.png">
+<head>
+</head>
+<link rel="stylesheet" type="text/css" href="http://www2.meteo.uni-bonn.de/staff/pshrestha/externalcss/style.css">
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<script src="http://d3js.org/topojson.v1.min.js"></script>
+<!--<script src="http://rawgithub.com/markmarkoh/datamaps/master/dist/datamaps.none.min.js"></script>
+-->
+<script src="../js/datamaps.none.min.js"></script>
+<body> 
+
+<div id="C1">
+<h2><font color="black">Nov 2016 ,</font>
+<font color="steelblue"><a href="http://www2.meteo.uni-bonn.de/staff/pshrestha/welcome.html">Prabhakar Shrestha</a></font>
+</h2>
+<h2>Nepal Election 2013 Interactive Map</br>
+<a href="https://twitter.com/share" class="twitter-share-button" data-show-count="true">Tweet</a><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+</h2>
+
+<div id="container1" style="height: 520px; width: 1000px;"></div>
+
+    <script>
+    <!--//Get the data asynchronus call
+    //String manipulation for popup message
+    //The districts should be ordered accodring to id in the .json file used for mapping-->
+
+    var nepaldis = ["Taplejung","Panchthar","Ilam","Jhapa","Morang","Sunsari","Dhankuta",
+                    "Terhathum","Sankhuwasabha","Bhojpur","Solukhumbu","Okhaldhunga","Khotang","Udaypur",
+                    "Saptari","Siraha","Dhanusha","Mahottari","Sarlahi","Sindhuli","Ramechhap","Dolakha",
+                    "Sindhupalchok","Kabhrepalanchok","Lalitpur","Bhaktapur","Kathmandu","Nuwakot","Rasuwa",
+                    "Dhading","Makawanpur","Rautahat","Bara","Parsa","Chitawan","Gorkha","Lamjung","Tanahu",
+                    "Syangja","Kaski","Manang","Mustang","Myagdi","Parbat","Baglung","Gulmi","Palpa",
+                    "Nawalparasi","Rupandehi","Kapilbastu","Arghakhanchi","Pyuthan","Rolpa","Rukum","Salyan",
+                    "Dang","Banke","Bardiya","Surkhet","Dailekh","Jajarkot","Dolpa","Jumla","Kalikot",
+                    "Mugu","Humla","Bajura","Bajhang","Achham","Doti","Kailali","Kanchanpur","Dadeldhura",
+                    "Baitadi","Darchula"];
+
+    <!--These variables act like pointers, do not point two arrays to same one to initialize-->
+
+    var popmsg   = [];
+
+    var elected  = [];  
+
+    var elecid   = [];
+
+<!--//-------------------------------------------------------------------------------->
+    d3.csv("../csvData/nepalElection_stat_2013.csv", function(error,csvdataDIS) {
+    if (error) return console.log("ERROR loading the csv: " + error);
+    console.log("LENGTH " + csvdataDIS.length );
+
+    csvdataDIS.forEach(function(d) {
+        d.district       =  d.district;
+        d.cnum           = +d.cnum;
+        d.nvote          = +d.nvote;
+        d.pvote          = +d.pvote;
+        d.party          =  d.party;
+      });
+
+    popmsg = extract_popmsg(csvdataDIS);
+    <!--// cannot pass elected otherwise, put the map in asynchronus d3.csv call  });-->
+
+    <!--//basic map config with custom fills, mercator projection-->
+    var myMap = new Datamap({
+    element: document.getElementById('container1'),
+    geographyConfig: {
+      dataUrl: '../json/nepaldistricts.json',
+      popupTemplate: function(geography, data) {
+      return   '<div class=hoverinfo>' + geography.properties.name + data.msg + '</div>'
+       }, 
+      popupOnHover: true    <!--//popmsg[parseInt(geography.id)-1];}-->
+    },
+    scope: 'npd',
+    fills: {
+      defaultFill: '#bada55',
+      NC: '#3CB371',
+      CPN_UML: '#00BFFF',
+      UCPN_MAOIST: '#FF4500',
+      MJFL: '#D2691E',
+      TML: '#dd4477',
+      RPP: '#316395',
+      MJF: '#b82e2e',
+      TMS: "#00FFFF",
+      NMK: "#B8860B",
+      INDP: "#FF00FF",
+      DIV: "#A9A9A9",
+    },
+    data: {
+      '01' : {fillKey: elected[0], msg: popmsg[0] },
+      '02' : {fillKey: elected[1], msg: popmsg[1] },
+      '03' : {fillKey: elected[2], msg: popmsg[2] },
+      '04' : {fillKey: elected[3], msg: popmsg[3] },
+      '05' : {fillKey: elected[4], msg: popmsg[4] },
+      '06' : {fillKey: elected[5], msg: popmsg[5] },
+      '07' : {fillKey: elected[6], msg: popmsg[6] },
+      '08' : {fillKey: elected[7], msg: popmsg[7] },
+      '09' : {fillKey: elected[8], msg: popmsg[8] },
+      '10' : {fillKey: elected[9], msg: popmsg[9] },
+      '11' : {fillKey: elected[10], msg: popmsg[10] },
+      '12' : {fillKey: elected[11], msg: popmsg[11] },
+      '13' : {fillKey: elected[12], msg: popmsg[12] },
+      '14' : {fillKey: elected[13], msg: popmsg[13] },      
+      '15' : {fillKey: elected[14], msg: popmsg[14] },
+      '16' : {fillKey: elected[15], msg: popmsg[15] },
+      '17' : {fillKey: elected[16], msg: popmsg[16] },
+      '18' : {fillKey: elected[17], msg: popmsg[17] },
+      '19' : {fillKey: elected[18], msg: popmsg[18] },
+      '20' : {fillKey: elected[19], msg: popmsg[19] },
+      '21' : {fillKey: elected[20], msg: popmsg[20] },
+      '22' : {fillKey: elected[21], msg: popmsg[21] },
+      '23' : {fillKey: elected[22], msg: popmsg[22] },
+      '24' : {fillKey: elected[23], msg: popmsg[23] },
+      '25' : {fillKey: elected[24], msg: popmsg[24] },
+      '26' : {fillKey: elected[25], msg: popmsg[25] },
+      '27' : {fillKey: elected[26], msg: popmsg[26] },
+      '28' : {fillKey: elected[27], msg: popmsg[27] },
+      '29' : {fillKey: elected[28], msg: popmsg[28] },
+      '30' : {fillKey: elected[29], msg: popmsg[29] },
+      '31' : {fillKey: elected[30], msg: popmsg[30] },
+      '32' : {fillKey: elected[31], msg: popmsg[31] },
+      '33' : {fillKey: elected[32], msg: popmsg[32] },
+      '34' : {fillKey: elected[33], msg: popmsg[33] },
+      '35' : {fillKey: elected[34], msg: popmsg[34] },
+      '36' : {fillKey: elected[35], msg: popmsg[35] },
+      '37' : {fillKey: elected[36], msg: popmsg[36] },
+      '38' : {fillKey: elected[37], msg: popmsg[37] },
+      '39' : {fillKey: elected[38], msg: popmsg[38] },
+      '40' : {fillKey: elected[39], msg: popmsg[39] },
+      '41' : {fillKey: elected[40], msg: popmsg[40] },
+      '42' : {fillKey: elected[41], msg: popmsg[41] },
+      '43' : {fillKey: elected[42], msg: popmsg[42] },
+      '44' : {fillKey: elected[43], msg: popmsg[43] },
+      '45' : {fillKey: elected[44], msg: popmsg[44] },
+      '46' : {fillKey: elected[45], msg: popmsg[45] },
+      '47' : {fillKey: elected[46], msg: popmsg[46] },
+      '48' : {fillKey: elected[47], msg: popmsg[47] },
+      '49' : {fillKey: elected[48], msg: popmsg[48] },
+      '50' : {fillKey: elected[49], msg: popmsg[49] },
+      '51' : {fillKey: elected[50], msg: popmsg[50] },
+      '52' : {fillKey: elected[51], msg: popmsg[51] },
+      '53' : {fillKey: elected[52], msg: popmsg[52] },
+      '54' : {fillKey: elected[53], msg: popmsg[53] },
+      '55' : {fillKey: elected[54], msg: popmsg[54] },
+      '56' : {fillKey: elected[55], msg: popmsg[55] },
+      '57' : {fillKey: elected[56], msg: popmsg[56] },
+      '58' : {fillKey: elected[57], msg: popmsg[57] },
+      '59' : {fillKey: elected[58], msg: popmsg[58] },
+      '60' : {fillKey: elected[59], msg: popmsg[59] },
+      '61' : {fillKey: elected[60], msg: popmsg[60] },
+      '62' : {fillKey: elected[61], msg: popmsg[61] },
+      '63' : {fillKey: elected[62], msg: popmsg[62] },
+      '64' : {fillKey: elected[63], msg: popmsg[63] },
+      '65' : {fillKey: elected[64], msg: popmsg[64] },
+      '66' : {fillKey: elected[65], msg: popmsg[65] },
+      '67' : {fillKey: elected[66], msg: popmsg[66] },
+      '68' : {fillKey: elected[67], msg: popmsg[67] },
+      '69' : {fillKey: elected[68], msg: popmsg[68] },
+      '70' : {fillKey: elected[69], msg: popmsg[69] },
+      '71' : {fillKey: elected[70], msg: popmsg[70] },
+      '72' : {fillKey: elected[71], msg: popmsg[71] },
+      '73' : {fillKey: elected[72], msg: popmsg[73] },
+      '74' : {fillKey: elected[73], msg: popmsg[73] },
+      '75' : {fillKey: elected[74], msg: popmsg[74] },
+    },
+    setProjection: function(element) {
+      var projection = d3.geo.mercator()
+        .center([84.2, 28.5])
+        .scale(6000)
+        .translate([element.offsetWidth / 2, element.offsetHeight / 2]);
+
+       var path = d3.geo.path().projection(projection);
+       return {path: path, projection: projection};
+    }
+  });
+
+  myMap.legend({
+    legendTitle : "Political Party",
+    defaultFillName: "No data",
+  });
+
+  });
+
+ function extract_popmsg(csvdataDIS) {
+    for (var j=0;j<nepaldis.length;j++)
+      {
+        jj = j + 1;
+        <!--// For popup message -->
+        varstr = '<br><strong> CN__TotalVoters__%Votes__Party </strong> <br>';
+        <!--//For checking which party won-->
+        var parties  = [ {name:"NC", seats:0}, {name:"CPN_UML", seats:0}, {name:"UCPN_MAOIST",seats:0}, 
+                         {name:"MJFL", seats:0}, {name:"TML", seats:0}, {name:"RPP", seats:0}, 
+                         {name:"TMS", seats:0}, {name:"NMK", seats:0},{name:"INDP", seats:0}]; 
+        <!-- --> 
+        for (var i=0;i<csvdataDIS.length;i++)
+         {
+           if (csvdataDIS[i].district == nepaldis[j]) { 
+             dctr = i;
+             varstr = varstr + csvdataDIS[i].cnum + "_____" + csvdataDIS[i].nvote + '_____' 
+                           + csvdataDIS[i].pvote + '%' + "_____" + csvdataDIS[i].party + '<br>';  
+            <!--//To find which party won the district-->
+             for (var p=0;p<parties.length;p++)
+             {
+             if (csvdataDIS[i].party == parties[p].name) {
+               parties[p].seats = parties[p].seats + 1; 
+             }
+             }
+            <!--// To find which party won the district-->
+            
+            <!--// Stop looking --> 
+          }
+          }
+        <!--//Sort parties-->
+        parties.sort(function (a, b) {
+         if (a.seats > b.seats) {
+         return 1;
+        }
+         if (a.seats < b.seats) {
+          return -1;
+        }
+        <!--// a must be equal to b-->
+        return 0;
+        });
+
+        if (parties[(parties.length-1)].seats == parties[(parties.length-2)].seats) {
+          elecid[j]  = (j < 10 ? "0" : "") + jj;  
+          elected[j] = 'DIV'; 
+        } else {
+          elecid[j]  = (j < 10 ? "0" : "") + jj; 
+          elected[j] = parties[(parties.length-1)].name;
+        }
+        <!--//POPUP MESSAGE, do not understand why the last message is taken by myMap-->
+        popmsg[j] = varstr;
+   }
+      return popmsg;
+   }
+     </script>
+
+</body>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<br>
+
+Hover the cursor over the districts to explore the voter statistics for each constituency, including the party which won the election.
+The fill colors represents the parties which won the district, while "DIV" indicates more than one party won equal number of seats.
+<br>
+<br>
+
+Constituent Assembly Election Data for 2013 from <a href="http://election.gov.np">Election Commission, Nepal</a> was used to generate this
+interctive electorate map for Nepal, using <a href="http://datamaps.github.io/">DataMaps</a>. 
+<br>
+The shapefile containing the district boundaries of Nepal (source: ArcGIS), was converted to GeoJSON and then to topoJSON,
+following the steps from <a href="https://bost.ocks.org
+/mike/map/"> Mike Bostock's Let's Make a Map</a>. The steps to create the topoJSON is also shown below:
+</p>
+<p>
+<font color="steelblue"><b>Converting to GeoJSON</b></font><br><br>
+ogr2ogr -f GeoJSON nepal_districts.json NP_75DWGS84.shp<br><br>
+<font color="steelblue"><b>Converting to topoJSON</b></font><br><br>
+topojson -o nepaldistricts.json --id-property DIST_ID --properties name=DISTRICT npd.json<br>
+</p>
+<p>
+In addition, array manipulation and sorting has beeen used from <a href="https://github.com/d3/d3-array">d3-array</a> and <a href="http://alignedleft.com/tutorials/d3/data-types">ScottMurray's tutorial</a> to find which party won the district election, from the election data, as each district can have multiple constinuencies. The fill color represents the party which won the election, while the color for "DIV" is used when more than one party won equal seats from that district.
+<br> <br>
+I am just trying to teach myself to use this wonderful interface to explore data, hope it helps you also !!!!
+</div>
+</html>

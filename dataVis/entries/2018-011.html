@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<meta charset="utf-8">
+<meta name="viewport" content="width=1000">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@prabshr">
+<meta property="og:url" content="http://www2.meteo.uni-bonn.de/staff/pshrestha/dataVis/entries/2018-001.html">
+<meta property="og:title" content="GPM IMERG Interactive Map">
+<meta property="og:description" content="Prabhakar Shrestha's dataVis">
+<meta property="og:image" content="http://www2.meteo.uni-bonn.de/staff/pshrestha/dataVis/Image/2018-001.png">
+<link rel="stylesheet" type="text/css" href="http://www2.meteo.uni-bonn.de/staff/pshrestha/externalcss/style.css">
+<head>
+</head>
+
+<style>
+ .district {
+    fill: #666;
+    fill-opacity: 1.0;
+    stroke: #fff;
+    stroke-width: 1px;
+  }
+
+ .district:hover {
+    fill-opacity: 0.6;
+    fill: #666;
+  }
+
+ div.tooltip {
+    color: #222;
+    background-color: var(--bgcolor);
+    border-radius: 1px;
+    width: auto;
+    height: auto;
+    opacity: 0.8;
+    text-align: left;
+    position:absolute;
+    padding: 2px;
+    font: 12px sans-serif;
+    border: 0px;
+    border-radius: 8px;
+    }
+  .legend {
+    position:absolute;
+    left:700px;
+    top:150px;
+   }
+
+</style>
+
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<script src="http://d3js.org/topojson.v1.min.js"></script>
+
+<body> 
+
+<div id="C1">
+<h2><font color="black">July 2018 ,</font> 
+<font color="steelblue"><a href="http://www2.meteo.uni-bonn.de/staff/pshrestha/dataVis/welcome.html">Prabhakar Shrestha</a></font>
+</h2>
+<h2>GPM IMERG Interactive Map</br>
+<a href="https://twitter.com/share" class="twitter-share-button" data-show-count="true">Tweet</a><script
+ async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+</h2>
+
+<script type="text/javascript" src="http://www2.meteo.uni-bonn.de/staff/pshrestha/dataVis/js/d3gpmIMERG.js">  
+</script>
+
+</div>
+
+<div id="C1">
+<p>
+
+ Interactive map to explore daily accumulated precipitatoin from GPM IMERG
+<br>
+
+</p>
+</div>
+</body>
+
+</html>

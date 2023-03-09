@@ -1,0 +1,17 @@
+name,batch,latitude,longitude,radius,fillKey
+BIT  Mesra      ,1997, 23.412073,  85.439984,4,gt50
+Dhaka University,1996, 23.731176,  90.390993,3,gt50
+Mumbai          ,1992, 19.100290,  72.879134,3,gt50
+Uni of  Auckland,1997,-36.853316, 174.766661,3,gt50
+Duke University ,1997, 36.000836, -78.938797,3,gt50
+RMIT            ,1997,-37.808893, 144.962987,3,gt50
+UMassD          ,1999, 41.630061, -71.007296,3,gt50
+IIML            ,1997, 26.936006,  80.897884,3,gt50
+Uni of Oldenberg,1997, 53.148740,   8.181904,3,gt50
+Jamia Hamdard   ,1997, 28.517077,  77.251434,3,gt50
+IU Bloomington  ,1997, 39.169913, -86.514577,3,gt50
+CEU Budapest    ,1994, 47.500351,  19.049698,3,gt50
+KU Kathmandu    ,1997, 27.618991,  85.538605,3,gt50
+Santa Clara Uni ,1997, 37.349113,-121.940608,3,gt50
+Uni of Warwick  ,1997, 52.379030,  -1.561535,3,gt50
+ 
