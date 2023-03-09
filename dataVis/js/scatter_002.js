@@ -33,7 +33,7 @@ d3.csv("../csvData/co2.csv", function(error, data) {
 
 // Obtain min max of data
 var minX = d3.min(data, function(d) { return d.time; }),
-    maxX = 2020;
+    maxX = 2024;
 //d3.max(data, function(d) { return d.time; });
 
 //    minX = minX > 0 ? 0 : minX;
