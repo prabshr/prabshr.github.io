@@ -102,10 +102,9 @@ h2 {
 p {
     font-family: "Roboto", sans-serif;
     color: black;
+    margin-left: 5px;
+    margin-right: 5px;
     font-size: 14.5px;
-    margin-left: 80px;
-    margin-right: 80px;
-    line-height: 1.5;
 }
 
 /* The article divs  */
