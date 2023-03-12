@@ -216,6 +216,7 @@ p {
   grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
   padding: 1px;
   padding-top: 100px;
+  font-family: "Roboto", sans-serif;
 }
 
 .grid-item {
@@ -224,6 +225,7 @@ p {
   padding: 10px;
   font-size: 15px;
   text-align: left;
+  font-family: "Roboto", sans-serif;
 }
 
 .row {
