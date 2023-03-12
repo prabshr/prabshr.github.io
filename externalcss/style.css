@@ -75,7 +75,7 @@ body, html {
   top: 80%;
   left: 50%;
   transform: translate(-50%, -50%);
-  font-family: "Roboto", sans-serif;
+  font-family: "Arial";
   color: white;
   font-size: 37.5px;
 }
