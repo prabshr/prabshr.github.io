@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
-font-family: 'Roboto', sans-serif;
 
 /* The body */
 body, html {
@@ -21,7 +20,7 @@ body, html {
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
-  font-family: "Lucida Sans Unicode";
+  font-family: "Roboto", sans-serif; 
   font-size: 17px;
   word-spacing: 30px;
   width:var(--pgwidth);
