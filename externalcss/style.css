@@ -100,6 +100,7 @@ p {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 16px;
     margin-left: 80 px;
+    margin-right: 80 px;
 }
 
 /* The article divs  */
@@ -127,6 +128,15 @@ p {
     font-family: "Helvetica";
     float:left;
     width:var(--pgwidth);
+    padding-top: 60px;
+    padding:10px;
+    text-align:justify;
+}
+
+#C4 {
+    font-family: "Helvetica";
+    float:left;
+    width: 600 px;
     padding-top: 60px;
     padding:10px;
     text-align:justify;
