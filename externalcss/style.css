@@ -137,15 +137,6 @@ p {
     text-align:justify;
 }
 
-#C4 {
-    font-family: "Roboto";
-    float:left;
-    width: 600 px;
-    padding-top: 60px;
-    padding:10px;
-    text-align:justify;
-}
-
 #d3vis {
     background-color:var(--hhcolor);
     float:center;
