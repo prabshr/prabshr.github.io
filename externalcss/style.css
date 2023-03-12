@@ -70,6 +70,7 @@ body, html {
 }
 
 .bg-text {
+  font-family: "Roboto", sans-serif;
   text-align: center;
   position: absolute;
   top: 80%;
@@ -102,8 +103,8 @@ p {
     font-family: "Roboto", sans-serif;
     color: black;
     font-size: 14.5px;
-    margin-left: 80 px;
-    margin-right: 80 px;
+    margin-left: 80px;
+    margin-right: 80px;
     line-height: 1.5;
 }
 
