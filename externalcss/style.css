@@ -213,16 +213,15 @@ p {
   grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
   padding: 1px;
   padding-top: 100px;
-  font-family: "Roboto", sans-serif;
 }
 
 .grid-item {
   background-color: rgba(255, 255, 255, 0.8);
   border: 1px solid rgba(0, 0, 0, 0.8);
   padding: 10px;
+  font-family: "Roboto", sans-serif;
   font-size: 15px;
   text-align: left;
-  font-family: "Roboto", sans-serif;
 }
 
 .row {
