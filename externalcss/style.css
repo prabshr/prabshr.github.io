@@ -4,7 +4,7 @@
 body, html {
   height: 100%;
   margin: 0;
-  font-family: Arial, Roboto, sans-serif;
+  font-family: Roboto, sans-serif;
 }
 
 /* The navbar */
@@ -20,7 +20,7 @@ body, html {
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
-  font-family: "Roboto", sans-serif; 
+  font-family: Roboto, sans-serif; 
   font-size: 17px;
   word-spacing: 30px;
   width:var(--pgwidth);
@@ -89,27 +89,27 @@ body, html {
 
 /* The headers and paragraphs */
 h1 {
-    font-family: "Roboto", sans-serif;
+    font-family: Roboto, sans-serif;
     color: black;
     font-size: 37.5px;
 }
 
 h2 {
-    font-family: "Roboto", sans-serif;
+    font-family: Roboto, sans-serif;
     color: black;
     font-size: 28px;
 }
 
-.p {
-    font-family: "Roboto", sans-serif;
+p {
+    font-family: Roboto, sans-serif;
     color: black;
-    font-size: 14.5px;
+    font-size: 20px;
 }
 
 /* The article divs  */
 
 #C1 {
-    font-family: "Roboto";
+    font-family: Roboto, sans-serif;
     float:left;
     width:var(--pgwidth);
     padding-top: 60px;
@@ -118,7 +118,7 @@ h2 {
 }
 
 #C2 {
-    font-family: "Roboto";
+    font-family: Roboto, sans-serif;
     float:left;
     width:var(--pgwidth);
     padding-top: 60px;
@@ -128,7 +128,7 @@ h2 {
 }
 
 #C3 {
-    font-family: "Roboto";
+    font-family: Roboto, sans-serif;
     float:left;
     width:var(--pgwidth);
     padding-top: 60px;
@@ -220,7 +220,7 @@ h2 {
   background-color: rgba(255, 255, 255, 0.8);
   border: 1px solid rgba(0, 0, 0, 0.8);
   padding: 10px;
-  font-family: "Roboto", sans-serif;
+  font-family: Roboto, sans-serif;
   font-size: 15px;
   text-align: left;
 }
