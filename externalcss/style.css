@@ -115,7 +115,7 @@ p {
     padding-top: 60px;
     padding:10px;
     text-align:justify;
-    margin: 5px 150px 5px 150px;
+    margin: auto;
 }
 
 #C2 {
@@ -126,7 +126,7 @@ p {
     padding:10px;
     text-align:justify;
     background-color: #ddd;
-    margin: 5px 150px 5px 150px;
+    margin: auto;
 }
 
 #C3 {
@@ -136,7 +136,7 @@ p {
     padding-top: 60px;
     padding:10px;
     text-align:justify;
-    margin: 5px 150px 5px 150px;
+    margin: auto;
 }
 
 #d3vis {
@@ -146,7 +146,7 @@ p {
     clear:both;
     text-align:left;
     padding:10px;
-    margin: 5px 150px 5px 150px;
+    margin: auto;
 }
 
 #footer {
@@ -158,7 +158,7 @@ p {
     padding:5px;
     padding-top: 30px;
     font-size: 12px;
-    margin: 5px 150px 5px 150px;
+    margin: auto;
 }
 
 .scatter {
