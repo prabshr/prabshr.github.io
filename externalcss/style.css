@@ -28,7 +28,7 @@ p {
 
 /* The article divs  */
 
-#C1 {
+div {
     font-family: Roboto, sans-serif;
     float:left;
     width:var(--pgwidth);
