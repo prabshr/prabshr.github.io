@@ -29,10 +29,6 @@ p {
 /* The article divs  */
 
 .sdv {
-    font-family: Roboto, sans-serif;
-    float:left;
-    padding-top: 60px;
-    padding:10px;
     text-align:justify;
     background-color: #ADD8E6;
 }
