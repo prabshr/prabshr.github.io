@@ -31,11 +31,9 @@ p {
 .sdv {
     font-family: Roboto, sans-serif;
     float:left;
-    width:var(--pgwidth);
     padding-top: 60px;
     padding:10px;
     text-align:justify;
     background-color: #ADD8E6;
-    margin: auto;
 }
 
