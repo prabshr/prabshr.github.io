@@ -30,7 +30,8 @@ p {
 
 .sdv {
     text-align:justify;
-    height: 200px;
+    height: 400px;
+    padding: 70px;
     background-color: #2d8659;
 }
 
