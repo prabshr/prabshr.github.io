@@ -26,12 +26,19 @@ p {
     line-height: 1.6;
 }
 
-/* The article divs  */
+/* The article divs classes  */
 
-.sdv {
+.sdv1 {
     text-align:justify;
     height: 400px;
     padding: 70px;
     background-color: #659490;
 }
+
+.sdv2 {
+    text-align:justify;
+    height: 400px;
+    padding: 70px;
+}
+
 
